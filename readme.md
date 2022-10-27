@@ -2,7 +2,7 @@
 
 This module implement HMAC256 request verification base on requirement here - (https://learn.microsoft.com/en-us/azure/azure-app-configuration/rest-api-authentication-hmac)
 
-## Basic usafe with all default
+## Basic usage with all default
   
   
 ```js
