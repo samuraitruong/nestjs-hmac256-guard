@@ -23,7 +23,7 @@ jobs:
           cache: npm
           
       - run: npm install
-      - run: npm run buld
+      - run: npm run build
 
   publish-gpr:
     needs: build
