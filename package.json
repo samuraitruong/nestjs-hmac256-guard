@@ -1,6 +1,6 @@
 {
   "name": "nestjs-hmac256-guard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "type": "commonjs",
@@ -14,7 +14,11 @@
     "type": "git",
     "url": "git+https://github.com/samuraitruong/nestjs-hmac256-guard.git"
   },
-  "keywords": [],
+  "keywords": [
+    "nestjs",
+    "hmac256",
+    "guard"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
