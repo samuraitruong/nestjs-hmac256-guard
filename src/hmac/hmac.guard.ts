@@ -47,10 +47,15 @@ export class HmacGuard implements CanActivate {
       : undefined;
 
     this.configService.log("contentHash: ", contentHash);
-
+    this.configService.log("originalContentHash: ", originalContentHash);
     if (originalContentHash !== contentHash) {
+      this.configService.log(
+        "Content hash does not match original content hash"
+      );
       return false;
     }
+    this.configService.log("url: ", url);
+    this.configService.log("host: ", host);
 
     const contentToHash = this.configService.getStringToHash({
       verb,
