@@ -26,7 +26,9 @@ export class ConfigService {
 
   log(message: string, ...args: any[]): void {
     if (this.logger) {
-      this.logger.info(message, ...args);
+      if (this.logger.info) this.logger.info(message, ...args);
+
+      if (this.logger.log) this.logger.log(message, ...args);
     }
   }
   getStringToHash({

@@ -1,6 +1,6 @@
 {
   "name": "nestjs-hmac256-guard",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "HMAC authentication guard for NestJS",
   "main": "dist/index.js",
   "type": "commonjs",
