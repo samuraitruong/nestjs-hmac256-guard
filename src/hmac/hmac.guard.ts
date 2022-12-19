@@ -24,27 +24,33 @@ export class HmacGuard implements CanActivate {
     const verb = request.method;
     const url = request.url;
     const utcNow = new Date().getTime();
-
     const date = request.headers[this.configService.REQUEST_DATE_HEADER_NAME];
     if (!date) {
       this.configService.log("No request date present in request header");
       return false;
     }
-
+    this.configService.log("server time:", new Date(), new Date().getTime());
+    this.configService.log(
+      "request time: ",
+      new Date(date),
+      new Date(date).getTime()
+    );
     // check if request date is not oldest than x minutes
     if (
       utcNow - new Date(date).getTime() >
-      this.configService.MAX_REQUEST_MINUTES_ALLOW
+      this.configService.MAX_REQUEST_MINUTES_ALLOW * 1000
     ) {
       this.configService.log(
         "Request rejected as ms-date expired",
         utcNow,
         date,
-        new Date(date).getTime()
+        new Date(date).getTime(),
+        utcNow - new Date(date).getTime(),
+        this.configService.MAX_REQUEST_MINUTES_ALLOW
       );
       return false;
     }
-    console.log("request.body", request.body);
+    this.configService.log("request.body", request.body);
     const host = request.headers.host;
     const contentHash = request.body
       ? crypto
